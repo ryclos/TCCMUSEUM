@@ -13,7 +13,7 @@ export class WelcomePage {
     
   }
 
-  private pageSuivante() {
+  pageSuivante() {
     this.navCtrl.push(TabsPage);
     
   }
