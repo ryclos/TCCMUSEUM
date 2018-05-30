@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController} from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions, BarcodeScanResult} from '@ionic-native/barcode-scanner';
 
 
@@ -16,24 +16,28 @@ export class ScanPage {
     this.scanBarcode();
   }
 
+  ionViewWillEnter(){
+    this.scanBarcode();
+  }
+
   scanBarcode(){
-    
+
     const options: BarcodeScannerOptions = {
       prompt: 'Veuillez scanner l\'oeuvre',
       torchOn: false
     };
-    
+
     this.bcs.scan(options)
     .then(res => {
       this.result = res;
     })
-    
+
     .catch(err => {
       this.toastCtrl.create({
         message: err.message
       }).present();
     })
   }
-  
+
 
 }

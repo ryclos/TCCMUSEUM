@@ -84,10 +84,13 @@
     <allow-navigation href="http://192.168.10.190:8100" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-qrscanner" spec="^2.6.0" />
-    <engine name="android" spec="^7.1.0" />
-    <engine name="ios" spec="4.5.4" />
-    <engine name="browser" spec="5.0.3" />
+    <plugin name="cordova-sqlite-storage" spec="^2.3.2" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^7.1.2">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+    <allow-navigation href="http://192.168.1.68:8100" />
+    <engine name="android" spec="^7.1.0" />
+    <engine name="ios" spec="4.5.4" />
+    <engine name="browser" spec="5.0.3" />
 </widget>
