@@ -11,9 +11,4 @@ export class HomePage {
 
   }
 
-  alertInfo() : void {
-    console.log('Hooooonnnnnnnn!');
-
-  }
-
 }

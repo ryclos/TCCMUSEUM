@@ -7,10 +7,15 @@ import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from "../pages/welcome/welcome";
+import { ScanPage } from "../pages/scan/scan";
+import { DbPage } from "../pages/db/db";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { SQLite } from '@ionic-native/sqlite';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 
 @NgModule({
@@ -19,7 +24,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     AboutPage,
     HomePage,
     WelcomePage,
-    TabsPage
+    TabsPage,
+    DbPage,
+    ScanPage
   ],
   imports: [
     BrowserModule,
@@ -31,12 +38,17 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     AboutPage,
     HomePage,
     WelcomePage,
-    TabsPage
+    TabsPage,
+    DbPage,
+    ScanPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     BarcodeScanner,
+    SQLite,
+    DbPage,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
