@@ -10,12 +10,11 @@ import { TabsPage } from '../tabs/tabs';
 export class WelcomePage {
 
   constructor(public navCtrl: NavController) {
-    
+
   }
 
   pageSuivante() {
     this.navCtrl.push(TabsPage);
-    
   }
 
 }
