@@ -1,22 +1,21 @@
 <ion-header>
   <ion-navbar>
-      <ion-title>
-          Oeuvres: {{nb_checked}}/{{total}}
-      </ion-title>
+    <ion-title>
+      Oeuvres: {{nb_checked}}/{{total}}
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
     <ion-item *ngFor="let oeuvre of event">
-      <ion-checkbox disabled="true">
       <img src="../../assets/imgs/{{oeuvre.qrcode}}.jpg" />
-        <div>{{oeuvre.firstname}}</div>
-        <div>{{oeuvre.lastname}}</div>
-        <div>{{oeuvre.qrcode}}</div>
-       <!-- <ion-checkbox [(ngModel)]="true" disabled="true"></ion-checkbox> -->
-      </ion-checkbox>
+      <div>{{oeuvre.firstname}}</div>
+      <div>{{oeuvre.lastname}}</div>
+      <div>{{oeuvre.qrcode}}</div>
+      <ion-item>
+        <ion-checkbox checked={{oeuvre.checked}} disabled="true"></ion-checkbox>
+      </ion-item>
     </ion-item>
   </ion-card>
 </ion-content>
-

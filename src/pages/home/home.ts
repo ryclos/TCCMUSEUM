@@ -40,7 +40,7 @@ export class HomePage {
   //création d'une table
   private createTables(): void {
     /* this.db.executeSql('DROP TABLE `oeuvre` ', {}); */
-    this.db.executeSql('CREATE TABLE IF NOT EXISTS `oeuvre` ( `id` INTEGER NOT NULL PRIMARY KEY, `lastname` TEXT, `firstname` TEXT, `qrcode` INTEGER, `checked` INTEGER )', {})
+    this.db.executeSql('CREATE TABLE IF NOT EXISTS `oeuvre` ( `id` INTEGER NOT NULL PRIMARY KEY, `lastname` TEXT, `firstname` TEXT, `qrcode` INTEGER, `checked` TEXT )', {})
       .then((table) => {
 
         if (table.rows.length == 21) {
@@ -58,27 +58,27 @@ export class HomePage {
 
   //insertion de donnée dans le tableau
   private saveDataBase(): void {
-    this.db.executeSql("INSERT INTO 'oeuvre' VALUES (1,'ALVAREZ','Jean-Pierre',9213750369,0)," +
-      "(2,'ARAI','Poeragni',6510403686,0)," +
-      "(3,'CHANSIN','Jerôme',7216899933,0)," +
-      "(4,'CHEUNG-SEN ','Jonas',1629568455,0)," +
-      "(5,'CUNY','Heimana',9266553664,0)," +
-      "(6,'EBB','Nicolas',1168085824,0)," +
-      "(7,'LEHARTEL','Alexandre',2791010818,0)," +
-      "(8,'LENOIR','Tetuaoro',4173047359,0)," +
-      "(9,'LONGINE','Manaarii ',9782420312,0)," +
-      "(10,'LY','Joane ',6872232276,0)," +
-      "(11,'MARO','Teremu ',1234567890,0)," +
-      "(12,'MONACO','Vaitare',4653519064,0)," +
-      "(13,'PAEAHI','Ariipaea',3658034121,0)," +
-      "(14,'PAMBRUN','Aito ',5175547403,0)," +
-      "(15,'PAMBRUN','Hiomai',9520532017,0)," +
-      "(16,'PEREZ','Rahiti',1228597258,0)," +
-      "(17,'PERRY','Matihamu ',5480211371,0)," +
-      "(18,'ROUSSEL','Christian ',2462643924,0)," +
-      "(19,'TEHUPE','Tinirau ',5055364030,0)," +
-      "(20,'TEMATAHOTOA','Tinirau ',6232447902,0)," +
-      "(21,'TOOFA','Teparii ',4235066246,0);'", {})
+    this.db.executeSql("INSERT INTO 'oeuvre' VALUES (1,'ALVAREZ','Jean-Pierre',9213750369,'false')," +
+      "(2,'ARAI','Poeragni',6510403686,'false')," +
+      "(3,'CHANSIN','Jerôme',7216899933,'false')," +
+      "(4,'CHEUNG-SEN ','Jonas',1629568455,'false')," +
+      "(5,'CUNY','Heimana',9266553664,'false')," +
+      "(6,'EBB','Nicolas',1168085824,'false')," +
+      "(7,'LEHARTEL','Alexandre',2791010818,'false')," +
+      "(8,'LENOIR','Tetuaoro',4173047359,'false')," +
+      "(9,'LONGINE','Manaarii ',9782420312,'false')," +
+      "(10,'LY','Joane ',6872232276,'false')," +
+      "(11,'MARO','Teremu ',1234567890,'false')," +
+      "(12,'MONACO','Vaitare',4653519064,'false')," +
+      "(13,'PAEAHI','Ariipaea',3658034121,'false')," +
+      "(14,'PAMBRUN','Aito ',5175547403,'false')," +
+      "(15,'PAMBRUN','Hiomai',9520532017,'false')," +
+      "(16,'PEREZ','Rahiti',1228597258,'false')," +
+      "(17,'PERRY','Matihamu ',5480211371,'false')," +
+      "(18,'ROUSSEL','Christian ',2462643924,'false')," +
+      "(19,'TEHUPE','Tinirau ',5055364030,'false')," +
+      "(20,'TEMATAHOTOA','Tinirau ',6232447902,'false')," +
+      "(21,'TOOFA','Teparii ',4235066246,'false');'", {})
       .then(() => {
         console.log('oeuvre ajoutée');
       })
@@ -112,7 +112,7 @@ export class HomePage {
   }
 
   public getTotalChecked(){
-    this.db.executeSql('SELECT count(checked) as checked from oeuvre where checked=1', {})
+    this.db.executeSql('SELECT count(checked) as checked from oeuvre where checked="true"', {})
      .then((data) =>{
 
        this.nb_checked=data.rows.item(0).checked;

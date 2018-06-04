@@ -82,7 +82,7 @@ export class TabsPage {
 
 
   private updateSeenStatus(): any {
-    this.dbService.db.executeSql("UPDATE `oeuvre` SET checked = '1' WHERE oeuvre.qrcode="+this.scannedData, {})
+    this.dbService.db.executeSql('UPDATE `oeuvre` SET checked = "true" WHERE oeuvre.qrcode='+this.scannedData, {})
       .then(() => {
         console.log('Status updated to "seen"');
         this.goToBrowser()
